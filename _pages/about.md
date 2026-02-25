@@ -17,7 +17,7 @@ social: true # includes social icons at the bottom of the page
 math: true # enables math typesetting
 ---
 
-I am a second-year PhD student in the [Joint Carnegie Mellon-University of Pittsburgh PhD Program in Computational Biology (CPCB)](https://www.compbio.cmu.edu/), co-advised by [Dr. James Faeder](https://www.csb.pitt.edu/Faculty/Faeder/) and [Dr. William Hawse](https://www.immunology.pitt.edu/person/william-hawse-phd).
+I am a second-year PhD student in the [Joint Carnegie Mellon-University of Pittsburgh PhD Program in Computational Biology (CPCB)](https://www.compbio.cmu.edu/), co-advised by [Dr. James Faeder](https://www.csb.pitt.edu/Faculty/Faeder/) and [Dr. William Hawse](https://www.immunology.pitt.edu/people/william-f-hawse-phd).
 
 My research focus is on **advancing multiscale systems immunology through the lens of formal modeling and predictive inference**. I develop computational frameworks to decode the complex regulatory programs governing T-cell plasticity and pathogenicity, bridging the gap between high-dimensional 'omics' data and mechanistic understanding.
 
