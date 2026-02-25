@@ -1,0 +1,28 @@
+# Development Configuration - Faster Builds
+# Disable heavy plugins by overriding the plugins array
+plugins:
+  - jekyll-archives
+  - jekyll-email-protect
+  - jekyll-feed
+  - jekyll-get-json
+  # - jekyll-imagemagick
+  # - jekyll-jupyter-notebook
+  - jekyll-link-attributes
+  # - jekyll-minifier
+  - jekyll-paginate-v2
+  - jekyll-regex-replace
+  - jekyll/scholar
+  - jekyll-sitemap
+  - jekyll-tabs
+  - jekyll-toc
+  - jekyll-twitter-plugin
+  - jemoji
+
+jekyll-minifier:
+  enabled: false
+
+imagemagick:
+  enabled: false
+
+# Limit processing
+limit_posts: 5

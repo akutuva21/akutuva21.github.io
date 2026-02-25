@@ -2,26 +2,27 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>PhD Student at Pitt/CMU in Computational Biology</a>.
+subtitle: PhD Student in Computational Biology @ Pitt/CMU
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  #more_info: >
-    #<p>555 your office number</p>
-    #<p>123 your address street</p>
-    #<p>Your City, State 12345</p>
+  image_circular: true # crops the image to make it circular
+  # more_info: >
+  #   <p>A. Kutuva</p>
 
-# news: true # includes a list of news items
+news: false # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
+math: true # enables math typesetting
 ---
 
-<!-- Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+I am a second-year PhD student in the [Joint Carnegie Mellon-University of Pittsburgh PhD Program in Computational Biology (CPCB)](https://www.compbio.cmu.edu/), co-advised by [Dr. James Faeder](https://www.csb.pitt.edu/Faculty/Faeder/) and [Dr. William Hawse](https://www.immunology.pitt.edu/person/william-hawse-phd).
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+My research focus is on **advancing multiscale systems immunology through the lens of formal modeling and predictive inference**. I develop computational frameworks to decode the complex regulatory programs governing T-cell plasticity and pathogenicity, bridging the gap between high-dimensional 'omics' data and mechanistic understanding.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them. -->
+## Research Interests
 
-Hello! I am a current PhD student in a joint program between CMU and Pitt in Computational Biology. I am interested in developing computational methods to study oncology and immunology, especially developing digital twins that integrate mechanistic modeling and machine learning.
+- **Multiscale Systems Immunology:** Integrating single-cell multi-omics and in-vivo proteomics to unravel the rewired regulatory modules driving **Th17 pathogenicity** and **CD4+ memory** differentiation.
+- **Formal Tooling for Rule-Based Systems:** Expanding the [BioNetGen](https://bionetgen.org/) ecosystem through the development of **BNGPlayground** and the establishment of formal **semantics for BNGL** to enable modular, whole-cell modeling.
+- **Predictive Inference & Experimental Design:** Leveraging **Optimal Experimental Design (OED)** and robust Bayesian calibration to maximize the information gain and predictive power of large-scale biochemical models.
