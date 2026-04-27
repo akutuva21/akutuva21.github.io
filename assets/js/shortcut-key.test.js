@@ -1,4 +1,4 @@
-describe('shortcut-key.js', () => {
+describe("shortcut-key.js", () => {
   let originalPlatform;
   let originalReadyState;
 
@@ -8,13 +8,13 @@ describe('shortcut-key.js', () => {
   });
 
   afterAll(() => {
-    Object.defineProperty(navigator, 'platform', {
+    Object.defineProperty(navigator, "platform", {
       value: originalPlatform,
-      configurable: true
+      configurable: true,
     });
-    Object.defineProperty(document, 'readyState', {
+    Object.defineProperty(document, "readyState", {
       value: originalReadyState,
-      configurable: true
+      configurable: true,
     });
   });
 
@@ -28,58 +28,58 @@ describe('shortcut-key.js', () => {
   });
 
   const setPlatform = (platform) => {
-    Object.defineProperty(navigator, 'platform', {
+    Object.defineProperty(navigator, "platform", {
       value: platform,
-      configurable: true
+      configurable: true,
     });
   };
 
   const triggerReadyStateChange = (state) => {
-    Object.defineProperty(document, 'readyState', {
+    Object.defineProperty(document, "readyState", {
       value: state,
-      configurable: true
+      configurable: true,
     });
-    document.dispatchEvent(new Event('readystatechange'));
+    document.dispatchEvent(new Event("readystatechange"));
   };
 
-  it('updates innerHTML if user is on a Mac and readyState is interactive', () => {
-    setPlatform('MacIntel');
-    require('./shortcut-key.js');
+  it("updates innerHTML if user is on a Mac and readyState is interactive", () => {
+    setPlatform("MacIntel");
+    require("./shortcut-key.js");
 
-    triggerReadyStateChange('interactive');
+    triggerReadyStateChange("interactive");
 
     const element = document.querySelector("#search-toggle .nav-link");
     // jsdom decodes '&#x2318;' to '⌘'
     expect(element.innerHTML).toBe('⌘ k <i class="ti ti-search"></i>');
   });
 
-  it('does not update innerHTML if user is on Windows', () => {
-    setPlatform('Win32');
-    require('./shortcut-key.js');
+  it("does not update innerHTML if user is on Windows", () => {
+    setPlatform("Win32");
+    require("./shortcut-key.js");
 
-    triggerReadyStateChange('interactive');
-
-    const element = document.querySelector("#search-toggle .nav-link");
-    expect(element.innerHTML).toBe('Original Text');
-  });
-
-  it('does not update innerHTML if readyState is not interactive', () => {
-    setPlatform('MacIntel');
-    require('./shortcut-key.js');
-
-    triggerReadyStateChange('complete');
+    triggerReadyStateChange("interactive");
 
     const element = document.querySelector("#search-toggle .nav-link");
-    expect(element.innerHTML).toBe('Original Text');
+    expect(element.innerHTML).toBe("Original Text");
   });
 
-  it('does not throw error if the element is missing', () => {
-    setPlatform('MacIntel');
-    document.body.innerHTML = ''; // Remove element
-    require('./shortcut-key.js');
+  it("does not update innerHTML if readyState is not interactive", () => {
+    setPlatform("MacIntel");
+    require("./shortcut-key.js");
+
+    triggerReadyStateChange("complete");
+
+    const element = document.querySelector("#search-toggle .nav-link");
+    expect(element.innerHTML).toBe("Original Text");
+  });
+
+  it("does not throw error if the element is missing", () => {
+    setPlatform("MacIntel");
+    document.body.innerHTML = ""; // Remove element
+    require("./shortcut-key.js");
 
     expect(() => {
-      triggerReadyStateChange('interactive');
+      triggerReadyStateChange("interactive");
     }).not.toThrow();
   });
 });
