@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-describe('Shortcut Key Script', () => {
+describe("Shortcut Key Script", () => {
   let originalPlatform;
   let originalReadyState;
 
@@ -12,18 +12,18 @@ describe('Shortcut Key Script', () => {
   });
 
   beforeEach(() => {
-    document.body.innerHTML = '';
+    document.body.innerHTML = "";
     jest.resetModules();
   });
 
   afterEach(() => {
-    Object.defineProperty(navigator, 'platform', {
+    Object.defineProperty(navigator, "platform", {
       value: originalPlatform,
-      configurable: true
+      configurable: true,
     });
-    Object.defineProperty(document, 'readyState', {
+    Object.defineProperty(document, "readyState", {
       value: originalReadyState,
-      configurable: true
+      configurable: true,
     });
     // Remove event listeners added by the script to avoid side effects
     // Since we can't easily remove anonymous functions, jest.resetModules() helps,
@@ -32,13 +32,13 @@ describe('Shortcut Key Script', () => {
   });
 
   const loadScript = () => {
-    require('./shortcut-key.js');
+    require("./shortcut-key.js");
   };
 
-  test('should update shortcut key to Mac command key if on Mac and readyState is interactive', () => {
-    Object.defineProperty(navigator, 'platform', {
-      value: 'MacIntel',
-      configurable: true
+  test("should update shortcut key to Mac command key if on Mac and readyState is interactive", () => {
+    Object.defineProperty(navigator, "platform", {
+      value: "MacIntel",
+      configurable: true,
     });
 
     document.body.innerHTML = `
@@ -49,23 +49,23 @@ describe('Shortcut Key Script', () => {
 
     loadScript();
 
-    Object.defineProperty(document, 'readyState', {
-      value: 'interactive',
-      configurable: true
+    Object.defineProperty(document, "readyState", {
+      value: "interactive",
+      configurable: true,
     });
-    document.dispatchEvent(new Event('readystatechange'));
+    document.dispatchEvent(new Event("readystatechange"));
 
-    const shortcutKeyElement = document.querySelector('#search-toggle .nav-link');
+    const shortcutKeyElement = document.querySelector("#search-toggle .nav-link");
     // Using string matching because JSDOM might parse the HTML entities
     expect(shortcutKeyElement.innerHTML).toContain('k <i class="ti ti-search"></i>');
     // To be precise, check if it contains the unicode symbol or the entity
     expect(shortcutKeyElement.innerHTML).toMatch(/(&#x2318;|⌘)/);
   });
 
-  test('should not update shortcut key if not on Mac', () => {
-    Object.defineProperty(navigator, 'platform', {
-      value: 'Win32',
-      configurable: true
+  test("should not update shortcut key if not on Mac", () => {
+    Object.defineProperty(navigator, "platform", {
+      value: "Win32",
+      configurable: true,
     });
 
     document.body.innerHTML = `
@@ -76,20 +76,20 @@ describe('Shortcut Key Script', () => {
 
     loadScript();
 
-    Object.defineProperty(document, 'readyState', {
-      value: 'interactive',
-      configurable: true
+    Object.defineProperty(document, "readyState", {
+      value: "interactive",
+      configurable: true,
     });
-    document.dispatchEvent(new Event('readystatechange'));
+    document.dispatchEvent(new Event("readystatechange"));
 
-    const shortcutKeyElement = document.querySelector('#search-toggle .nav-link');
-    expect(shortcutKeyElement.innerHTML).toBe('ctrl k');
+    const shortcutKeyElement = document.querySelector("#search-toggle .nav-link");
+    expect(shortcutKeyElement.innerHTML).toBe("ctrl k");
   });
 
-  test('should not throw error if shortcut key element is missing', () => {
-    Object.defineProperty(navigator, 'platform', {
-      value: 'MacIntel',
-      configurable: true
+  test("should not throw error if shortcut key element is missing", () => {
+    Object.defineProperty(navigator, "platform", {
+      value: "MacIntel",
+      configurable: true,
     });
 
     document.body.innerHTML = `
@@ -98,20 +98,20 @@ describe('Shortcut Key Script', () => {
 
     loadScript();
 
-    Object.defineProperty(document, 'readyState', {
-      value: 'interactive',
-      configurable: true
+    Object.defineProperty(document, "readyState", {
+      value: "interactive",
+      configurable: true,
     });
 
     expect(() => {
-      document.dispatchEvent(new Event('readystatechange'));
+      document.dispatchEvent(new Event("readystatechange"));
     }).not.toThrow();
   });
 
-  test('should not update shortcut key if readyState is not interactive', () => {
-    Object.defineProperty(navigator, 'platform', {
-      value: 'MacIntel',
-      configurable: true
+  test("should not update shortcut key if readyState is not interactive", () => {
+    Object.defineProperty(navigator, "platform", {
+      value: "MacIntel",
+      configurable: true,
     });
 
     document.body.innerHTML = `
@@ -122,13 +122,13 @@ describe('Shortcut Key Script', () => {
 
     loadScript();
 
-    Object.defineProperty(document, 'readyState', {
-      value: 'complete',
-      configurable: true
+    Object.defineProperty(document, "readyState", {
+      value: "complete",
+      configurable: true,
     });
-    document.dispatchEvent(new Event('readystatechange'));
+    document.dispatchEvent(new Event("readystatechange"));
 
-    const shortcutKeyElement = document.querySelector('#search-toggle .nav-link');
-    expect(shortcutKeyElement.innerHTML).toBe('ctrl k');
+    const shortcutKeyElement = document.querySelector("#search-toggle .nav-link");
+    expect(shortcutKeyElement.innerHTML).toBe("ctrl k");
   });
 });
