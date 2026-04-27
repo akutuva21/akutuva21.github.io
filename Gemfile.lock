@@ -269,6 +269,7 @@ DEPENDENCIES
   jekyll-toc
   jekyll-twitter-plugin
   jemoji
+  minitest
   unicode_utils
   webrick
 
