@@ -1,0 +1,122 @@
+Configuration file: /app/_config.yml
+Configuration file: /app/_config_dev.yml
+            Source: /app
+       Destination: /app/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+[33mNo config[0m
+       Jekyll Feed: Generating feed for posts
+       Imagemagick: Disabled in site.config
+         AutoPages: Disabled/Not configured in site.config.
+        Pagination: Complete, processed 1 pagination page(s)
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+7 │   "variables",
+  │   ^^^^^^^^^^^
+  ╵
+    /app/assets/css/main.scss 7:3  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │   "themes",
+  │   ^^^^^^^^
+  ╵
+    /app/assets/css/main.scss 8:3  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+9 │   "layout",
+  │   ^^^^^^^^
+  ╵
+    /app/assets/css/main.scss 9:3  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+10 │   "base",
+   │   ^^^^^^
+   ╵
+    /app/assets/css/main.scss 10:3  root stylesheet
+DEPRECATION WARNING: Sass @import rules are deprecated and will be removed in Dart Sass 3.0.0.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+11 │   "distill",
+   │   ^^^^^^^^^
+   ╵
+    /app/assets/css/main.scss 11:3  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use string.unquote instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+  ╷
+8 │   .#{$fa-css-prefix}-#{$name}::before { content: unquote("\"#{ $icon }\""); }
+  │                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  ╵
+    /app/_sass/font-awesome/_icons.scss 8:50  @import
+    font-awesome/fontawesome.scss 20:9        @import
+    /app/assets/css/main.scss 15:3            root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use string.unquote instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+29 │   .#{$fa-css-prefix}-#{$name}:before { content: unquote("\"#{ $icon }\""); }
+   │                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    font-awesome/brands.scss 29:49  @import
+    /app/assets/css/main.scss 16:3  root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use string.unquote instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+36 │   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+   │           ^^^^^^^^^^^^^
+   ╵
+    tabler-icons/tabler-icons.scss 36:11  unicode()
+    tabler-icons/tabler-icons.scss 40:15  @import
+    /app/assets/css/main.scss 19:3        root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use string.insert instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+36 │   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+   │                                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    tabler-icons/tabler-icons.scss 36:33  unicode()
+    tabler-icons/tabler-icons.scss 40:15  @import
+    /app/assets/css/main.scss 19:3        root stylesheet
+DEPRECATION WARNING: Global built-in functions are deprecated and will be removed in Dart Sass 3.0.0.
+Use string.unquote instead.
+
+More info and automated migrator: https://sass-lang.com/d/import
+
+   ╷
+36 │   @return unquote("\"")+unquote(str-insert($str, "\\", 1))+unquote("\"")
+   │                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   ╵
+    tabler-icons/tabler-icons.scss 36:25  unicode()
+    tabler-icons/tabler-icons.scss 40:15  @import
+    /app/assets/css/main.scss 19:3        root stylesheet
+WARNING: 38 repetitive deprecation warnings omitted.
+Run in verbose mode to see all warnings.
+[NbConvertApp] Converting notebook /tmp/jekyll-jupyter-notebook20260427-94975-v676bw.ipynb to html
+                    done in 4.377 seconds.
+ Auto-regeneration: enabled for '/app'
+    Server address: http://127.0.0.1:4000
+  Server running... press ctrl-c to stop.
