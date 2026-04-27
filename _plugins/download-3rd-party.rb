@@ -9,49 +9,38 @@ Jekyll::Hooks.register :site, :after_init do |site|
   font_file_types = ['otf', 'ttf', 'woff', 'woff2']
   image_file_types = ['.gif', '.jpg', '.jpeg', '.png', '.webp']
 
-  def download_and_change_rule_set_url(rule_set, rule, dest, dirname, config, file_types)
-    # check if the rule has a url
-    if rule_set[rule].include?('url(')
-      # get the file url
-      url = rule_set[rule].split('url(').last.split(')').first
-
-      # remove quotes from the url
-      if url.start_with?('"') || url.start_with?("'")
-        url = url[1..-2]
-      end
-
-      file_name = url.split('/').last.split('?').first
-
-      # verify if the file is of the correct type
-      if file_name.end_with?(*file_types)
-        # fix the url if it is not an absolute url
-        unless url.start_with?('https://')
-          url = URI.join(url, url).to_s
-        end
-
-        # download the file
-        download_file(url, File.join(dest, file_name))
-
-        # change the url to the local file, considering baseurl
-        previous_rule = rule_set[rule]
-        if config['baseurl']
-          # add rest of the src attribute if it exists
-          if rule_set[rule].split(' ').length > 1
-            rule_set[rule] = "url(#{File.join(config['baseurl'], 'assets', 'libs', dirname, file_name)}) #{rule_set[rule].split(' ').last}"
-          else
-            rule_set[rule] = "url(#{File.join(config['baseurl'], 'assets', 'libs', dirname, file_name)})"
-          end
-        else
-          # add rest of the src attribute if it exists
-          if rule_set[rule].split(' ').length > 1
-            rule_set[rule] = "url(#{File.join('/assets', 'libs', dirname, file_name)}) #{rule_set[rule].split(' ').last}"
-          else
-            rule_set[rule] = "url(#{File.join('/assets', 'libs', dirname, file_name)})"
-          end
-        end
-        puts "Changed #{previous_rule} to #{rule_set[rule]}"
-      end
+  def extract_url_from_rule(rule_value)
+    url = rule_value.split('url(').last.split(')').first
+    if url.start_with?('"') || url.start_with?("'")
+      url = url[1..-2]
     end
+    url
+  end
+
+  def download_and_change_rule_set_url(rule_set, rule, dest, dirname, config, file_types)
+    return unless rule_set[rule]&.include?('url(')
+
+    url = extract_url_from_rule(rule_set[rule])
+    file_name = url.split('/').last.split('?').first
+
+    return unless file_name.end_with?(*file_types)
+
+    url = URI.join(url, url).to_s unless url.start_with?('https://')
+
+    download_file(url, File.join(dest, file_name))
+
+    previous_rule = rule_set[rule]
+    base_path = config['baseurl'] || '/'
+    local_url = File.join(base_path, 'assets', 'libs', dirname, file_name)
+
+    parts = previous_rule.split(' ')
+    if parts.length > 1
+      rule_set[rule] = "url(#{local_url}) #{parts.last}"
+    else
+      rule_set[rule] = "url(#{local_url})"
+    end
+
+    puts "Changed #{previous_rule} to #{rule_set[rule]}"
   end
 
   def download_file(url, dest)
