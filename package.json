@@ -2,10 +2,14 @@
   "scripts": {
     "serve": "wsl bundle exec jekyll serve --config _config.yml,_config_dev.yml --host 0.0.0.0",
     "dev": "npm run serve",
-    "build": "wsl bundle exec jekyll build --config _config.yml,_config_dev.yml"
+    "build": "wsl bundle exec jekyll build --config _config.yml,_config_dev.yml",
+    "test": "jest"
   },
   "devDependencies": {
     "@shopify/prettier-plugin-liquid": "1.4.0",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "jsdom": "^29.1.0",
     "prettier": "3.1.1"
   }
 }
