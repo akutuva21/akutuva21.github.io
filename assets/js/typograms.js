@@ -86,8 +86,6 @@ glyphs["|"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
   }
   // const leg =  && ;
   // const head =  && ;
-  //console.log(!(bottomLeft == "/" && bottomRight == "\\"));
-  //console.log(!(topRight == "/" && topLeft == "\\"));
   result.appendChild(
     cross([
       !(topRight == "/" && topLeft == "\\"), // top
@@ -454,7 +452,6 @@ glyphs["+"] = ([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
       tR && tL, // bottomLeft
       bR && bL, // topLeft
     ]);
-    //console.log(center);
     center.setAttribute("clip-path", "polygon(15 0, 30 0, 30 54, 15 54)");
     result.appendChild(center);
   }
@@ -1136,7 +1133,6 @@ function cross([top, right, bottom, left, topRight, bottomRight, bottomLeft, top
     //  "http://www.w3.org/2000/svg", "polygon");
     //mask.setAttribute("points", "0 0, 15 0, 15 18, 0 18");
     //result.appendChild(mask);
-    //console.log("hi");
   }
 
   if (bottomRight) {
@@ -1295,18 +1291,13 @@ function around(diagram, [x, y]) {
     left = diagram[y][x - 1] || " ";
   }
   if (y > 0 && x < diagram[y - 1].length - 1) {
-    // console.log(`@${diagram[y][x]}: ${diagram[y - 1][x + 1]}`);
     topRight = diagram[y - 1][x + 1] || " ";
   }
   //if (diagram[y][x] == ".") {
-  //console.log(`${diagram[y][x]}}: ${(y + 1) < (diagram.length)}`);
-  //console.log(diagram[y + 1]);
   //throw new Error("hi");
   //}
   if (y + 1 < diagram.length && x < diagram[y + 1].length) {
     bottomRight = diagram[y + 1][x + 1] || " ";
-    //console.log(diagram[y + 1]);
-    //console.log(`${diagram[y][x]}: ${x} ${y} ${bottomRight}`);
     //throw new Error("hi");
   }
   if (y < diagram.length - 1 && x > 0) {
