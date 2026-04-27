@@ -107,4 +107,4 @@ const getRangesForSearchTermInNode = (node, search) => {
   return ranges;
 };
 
-export { highlightSearchTerm };
+export { highlightSearchTerm, getTextNodesInElementContainingText };
