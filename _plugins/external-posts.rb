@@ -66,11 +66,17 @@ module ExternalPosts
     end
 
     def fetch_from_urls(site, src)
-      src['posts'].each do |post|
-        puts "...fetching #{post['url']}"
-        content = fetch_content_from_url(post['url'])
-        content[:published] = parse_published_date(post['published_date'])
-        create_document(site, src['name'], post['url'], content)
+      results = src['posts'].map do |post|
+        Thread.new do
+          puts "...fetching #{post['url']}"
+          content = fetch_content_from_url(post['url'])
+          content[:published] = parse_published_date(post['published_date'])
+          { post: post, content: content }
+        end
+      end.map(&:value)
+
+      results.each do |result|
+        create_document(site, src['name'], result[:post]['url'], result[:content])
       end
     end
 
