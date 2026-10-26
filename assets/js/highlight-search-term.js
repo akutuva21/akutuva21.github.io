@@ -52,16 +52,17 @@ const highlightSearchTerm = ({ search, selector, customHighlightName = "search" 
     // nothing to highlight
     return;
   }
+  const normalizedSearch = search.toLowerCase();
   // find all text nodes containing the search term
   const ranges = [];
   const nonMatchingElements = [];
   const elements = document.querySelectorAll(selector);
   Array.from(elements).map((element) => {
     let match = false;
-    getTextNodesInElementContainingText(element, search).forEach((node) => {
+    getTextNodesInElementContainingText(element, normalizedSearch).forEach((node) => {
       // Modified variant of highlight-search-term
       // We return the non-matching elements in addition.
-      const rangesForSearch = getRangesForSearchTermInNode(node, search);
+      const rangesForSearch = getRangesForSearchTermInNode(node, normalizedSearch);
       ranges.push(...rangesForSearch);
       if (rangesForSearch.length > 0) {
         match = true;
@@ -80,10 +81,11 @@ const highlightSearchTerm = ({ search, selector, customHighlightName = "search" 
 
 const getTextNodesInElementContainingText = (element, text) => {
   const nodes = [];
+  const normalizedText = text.toLowerCase();
   const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT);
   let node;
   while ((node = walker.nextNode())) {
-    if (node.textContent && node.textContent.toLowerCase().includes(text)) {
+    if (node.textContent && node.textContent.toLowerCase().includes(normalizedText)) {
       nodes.push(node);
     }
   }
