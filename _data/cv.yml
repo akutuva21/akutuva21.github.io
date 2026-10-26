@@ -3,7 +3,7 @@
   contents:
     - title: PhD in Computational Biology
       institution: Joint CMU-Pitt CPCB Program, Pittsburgh, PA
-      year: 2023 - Present
+      year: 2024 - Present
       description:
         - Co-advised by Dr. James Faeder and Dr. William Hawse.
     - title: BS in Microbiology & Cell Science and Data Science (Double Major)
@@ -19,9 +19,9 @@
       institution: Faeder/Hawse Labs, Pitt/CMU
       year: 2024 - Present
       description:
-        - Developing **BNGPlayground** and contributing to the formal semantics of the BioNetGen ecosystem for rule-based modeling.
-        - Unravelling the regulatory programs of **T-cell plasticity and pathogenicity** using multi-omic integration and mechanistic modeling of IL-6/TGF-β signaling.
-        - Leveraging **Optimal Experimental Design (OED)** and multistart optimization to calibrate and validate high-dimensional biochemical models.
+        - Studying how T-cell states develop and change, and how conditions shape cell fate and plasticity.
+        - Using mechanistic models to explore how cellular processes shape behavior, and machine-learning methods to study patterns in cell responses.
+        - Contributing to BNG3 and BNG Playground, software for building and exploring rule-based models.
     - title: Mathematics Instructor
       institution: Mathnasium - The Math Learning Center
       year: 2019 - 2020
@@ -83,10 +83,11 @@
 - title: Academic Interests
   type: list
   contents:
-    - Mechanistic & Multiscale Modeling
-    - Interpretable Machine Learning Integration
-    - Computational Immunology
-    - Mathematical Oncology
+    - T-cell Fate and Plasticity
+    - Mechanisms of Cell Identity and Fate
+    - Cellular Responses to Perturbation
+    - Mechanistic Modeling and Machine Learning
+    - BNG3 and BNG Playground
 
 - title: Presentations
   type: time_table
