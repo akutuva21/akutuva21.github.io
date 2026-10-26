@@ -1,9 +1,12 @@
-require 'rake/testtask'
+require "rake"
+require "rbconfig"
 
-Rake::TestTask.new do |t|
-  t.libs << "spec"
-  t.test_files = FileList['spec/**/*_spec.rb']
-  t.verbose = true
+RUBY_TEST_FILES = FileList["test/test_*.rb", "spec/**/*_spec.rb"]
+
+task :test do
+  RUBY_TEST_FILES.each do |test_file|
+    sh RbConfig.ruby, test_file
+  end
 end
 
 task default: :test
